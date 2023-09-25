@@ -1,0 +1,87 @@
+﻿@model IEnumerable<ReportItemModel>
+
+<div id="report">
+    @if (Model != null && Model.Count() > 0)
+    {
+        <p class="text-primary">@Model.Count() record(s) found.</p>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BlogTitle)
+                    </th>
+                    @* <th>
+                @Html.DisplayNameFor(model => model.Content)
+                </th> *@
+                    <th>
+                        @Html.DisplayNameFor(model => model.BlogCreateDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BlogUpdateDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Score)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UserName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RoleName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Active)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Tag)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Popular)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <span title="@item.BlogContent" style="cursor: pointer;"><i class="fa-solid fa-circle-info"></i> @Html.DisplayFor(modelItem => item.BlogTitle)</span>
+                        </td>
+                        @* <td>
+                @Html.DisplayFor(modelItem => item.Content)
+                </td> *@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BlogCreateDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BlogUpdateDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Score)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RoleName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Active)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Tag)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Popular)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p class="text-danger">No records found.</p>
+    }
+</div>

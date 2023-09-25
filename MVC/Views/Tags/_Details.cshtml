@@ -1,0 +1,26 @@
+﻿@* Hem Details hem de Delete view'larında bu partial view kullanılıyor *@
+
+@model TagModel
+
+<div>
+    <dl class="row aligncenter">
+        <dt class="col-6">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-6">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-6">
+            @Html.DisplayNameFor(model => model.IsPopularDisplay)
+        </dt>
+        <dd class="col-6">
+            @Html.DisplayFor(model => model.IsPopularDisplay)
+        </dd>
+        <dt class="col-6">
+            @Html.DisplayNameFor(model => model.BlogCountDisplay)
+        </dt>
+        <dd class="col-6">
+            @Html.DisplayFor(model => model.BlogCountDisplay)
+        </dd>
+    </dl>
+</div>

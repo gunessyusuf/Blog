@@ -1,0 +1,65 @@
+﻿@model HomeIndexViewModel
+
+<form asp-action="Index" data-ajax="true" data-ajax-update="#report" data-ajax-mode="replace" id="form">
+    <div class="row mb-3">
+        <div class="col-1">
+            @Html.DisplayNameFor(model => model.Filter.BlogTitle)
+        </div>
+        <div class="col-3">
+            @Html.TextBoxFor(model => model.Filter.BlogTitle, new { @class = "form-control textbox" })
+        </div>
+        <div class="col-1">
+            @Html.DisplayNameFor(model => model.Filter.CreateDateBegin)
+        </div>
+        <div class="col-3">
+            <div class="input-group">
+                @* <input asp-for="CreateDateBegin" class="form-control textbox" type="text" placeholder="Create Date Begin" /> *@
+                @*<span class="input-group-text">-</span>*@
+                @* <input asp-for="CreateDateEnd" class="form-control textbox" type="text" placeholder="Create Date End" /> *@
+
+                @* @Html.EditorFor(model => model.CreateDateBegin) *@
+                @Html.TextBoxFor(model => model.Filter.CreateDateBegin, new { @class = "form-control textbox datetimepicker", placeholder = "Create Date Begin" })
+                <span class="input-group-text">-</span>
+                @Html.TextBoxFor(model => model.Filter.CreateDateEnd, new { @class = "form-control textbox datetimepicker", placeholder = "Create Date End" })
+            </div>
+        </div>
+        <div class="col-1">
+            @Html.DisplayNameFor(model => model.Filter.ScoreBegin)
+        </div>
+        <div class="col-3">
+            <div class="input-group">
+                @Html.TextBoxFor(model => model.Filter.ScoreBegin, new { @class = "form-control textbox" })
+                <span class="input-group-text">-</span>
+                @Html.TextBoxFor(model => model.Filter.ScoreEnd, new { @class = "form-control textbox" })
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-1">
+            @Html.DisplayNameFor(model => model.Filter.RoleId)
+        </div>
+        <div class="col-3">
+            @Html.DropDownListFor(model => model.Filter.RoleId, Model.RoleSelectList, "-- All Roles --", new { @class = "form-select select2", id = "roles" })
+        </div>
+        <div class="col-1">
+            @Html.DisplayNameFor(model => model.Filter.UserId)
+        </div>
+        <div class="col-3">
+            @Html.DropDownListFor(model => model.Filter.UserId, Model.UserSelectList, "-- All Users --", new { @class = "form-select select2", id = "users" })
+        </div>
+        <div class="col-1">
+            @Html.DisplayNameFor(model => model.Filter.TagIds)
+        </div>
+        <div class="col-3">
+            @Html.ListBoxFor(model => model.Filter.TagIds, Model.TagMultiSelectlist, new { @class = "form-select select2", id = "tags" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="offset-1 col-11">
+            <button type="submit" class="btn btn-success">Search</button>
+            &nbsp;&nbsp;
+            @* @Html.ActionLink("Clear", "Index", "Home", null, new { @class = "btn btn-warning", id = "clear" }) *@
+            <a href="" class="btn btn-warning" id="clear">Clear</a>
+        </div>
+    </div>
+</form>
